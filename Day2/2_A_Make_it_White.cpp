@@ -30,11 +30,9 @@ int main()
             if(s[right]=='W')right--;
             if(s[left]=='B' && s[right]=='B')break;
         }
-        if(left==0)cout<<++right<<nl;
-        else {
-            left--;
-            cout<<right-left<<nl;
-        }
+        if(left==0)cout<<right+1<<nl;
+        else cout<<right-left+1<<nl;
+    
     }
     return 0;
 }
