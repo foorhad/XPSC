@@ -17,13 +17,26 @@ using namespace std;
   
   
 void solve(){
-    ll a,b,n,s;cin>>a>>b>>n>>s;
-    if((a*n+b) == s)cout<<"YES"<<nl;
-    else if(s > (a*n)+b)cout<<"NO"<<nl;
-    else{
-        if((s%n) <= b)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
+    ll n,sum=0, len=0, k;cin>>n>>k;
+    vector<ll>v(n);
+    for(auto &it : v)cin>>it;
+    ll begin = 0, end = 0;
+    while (end<n)
+    {
+        sum += v[end];
+        if(sum >= k){
+            len += n-end;
+            while(sum>=k && begin<=end){
+                sum-=v[begin];
+                begin++;
+                if(sum >= k){
+                    len += n-end;
+                }
+            }
+        }
+        end++;
     }
+    cout<<len<<nl;
   
 }
   
@@ -31,7 +44,8 @@ void solve(){
 int main()
 {
 fast();
-    int t=1;cin>>t;
-    while(t--)solve();
+    // int t=1;cin>>t;
+    // while(t--)solve();
+    solve();
     return 0;
 }

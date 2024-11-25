@@ -17,21 +17,30 @@ using namespace std;
   
   
 void solve(){
-    ll a,b,n,s;cin>>a>>b>>n>>s;
-    if((a*n+b) == s)cout<<"YES"<<nl;
-    else if(s > (a*n)+b)cout<<"NO"<<nl;
-    else{
-        if((s%n) <= b)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
+    ll n,c;cin>>n>>c;
+    vector<ll>v;
+    for(ll i=1;i<=n;i++){
+      ll x;cin>>x;
+      v.push_back(x+i);
     }
-  
+    sort(all(v));
+    ll cnt=0;
+    for(auto val:v){
+        if(val <= c){
+            cnt++;
+            c-=val;
+        }
+        if(c==0)break;
+    }
+    cout<<cnt<<nl;
 }
   
   
 int main()
 {
 fast();
-    int t=1;cin>>t;
+    int t=1;
+    cin>>t;
     while(t--)solve();
     return 0;
 }

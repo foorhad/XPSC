@@ -1,56 +1,45 @@
-#include <iostream>     // Input/output streams (cin, cout, cerr, etc.)
-#include <fstream>      // File streams (for file input/output)
-#include <iomanip>      // Input/output manipulators (for formatting)
-#include <string>       // String manipulation
-#include <sstream>       // StringStream
-#include <vector>       // Dynamic arrays
-#include <list>         // Doubly linked list
-#include <queue>        // Queue data structure
-#include <stack>        // Stack data structure
-#include <map>          // Associative array (key-value pairs)
-#include <set>          // Set data structure
-#include <algorithm>    // Standard algorithms (sorting, searching, etc.)
-#include <cmath>        // Mathematical functions
-#include <ctime>        // Date and time functions
-#include <cstdlib>      // Standard library utilities (includes functions like `rand()` and `exit()`)
-#include <cstring>      // C-style string functions
-#include <cassert>      // Assertions
-#include <utility>
-#include <limits.h>
+#include <bits/stdc++.h>
 #define ll long long int
 #define pi pair<ll, ll>
 #define nl '\n'
-const ll INF = 1e18+5;
-const int N = 1e6+5;
+#define all(X) (X).begin(),(X).end()
+#define allr(X) (X).rbegin(),(X).rend()
+#define yes cout<<"YES"<<nl;
+#define no cout<<"NO"<<nl;
 #define fast() ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0)
- 
+const long long int INF = 1e18+5;
+const int N = 1e6 + 5;
+#define fs string::npos //find string in string
+#define mem0(X) memset(X,0,sizeof(X))
+#define mem1(X) memset(X,1,sizeof(X))
+#define memMin1(X) memset(X,-1,sizeof(X))
 using namespace std;
+  
+  
+void solve(){
+    int n;cin>>n;
+    string s;cin>>s;
+    int in_case_one = 0;
+    int in_case_zero = 0;
+    char curr_one = '1';
+    char curr_zero = '0';
+    if(s[0]=='1')in_case_one++;
+    for(int i=1;i<n;i++){
+        if(s[i]=='1' && s[i-1]!='1')in_case_one++;
+    }
 
+    if(s[0]==curr_zero)in_case_zero++;
+    for(int i=1;i<n;i++){
+        if(s[i]==curr_zero && s[i-1]!=curr_zero)in_case_zero++;
+    }
+    cout<<min(in_case_one,in_case_zero)<<nl;
+}
+  
+  
 int main()
 {
- fast();
-    int t;cin>>t;
-    while (t--)
-    {
-        int n,cnt1=0,cnt2=0;cin>>n;
-        string s;cin>>s;
-        char curr = '1';
-        for(int i=0;i<n;i++){
-            if(s[i]!=curr){
-                if(i==0)cnt1++;
-                else if(s[i-1]!=s[i])cnt1++;
-            }
-        }
-        curr = '0';
-        for(int i=0;i<n;i++){
-            if(s[i]!=curr){
-                if(i==0)cnt2++;
-                else if(s[i-1]!=s[i])cnt2++;
-            }
-        }
-        cout<<min(cnt1,cnt2)<<nl;
-        
-    }
-    
+fast();
+    int t=1;cin>>t;
+    while(t--)solve();
     return 0;
 }

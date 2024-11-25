@@ -4,8 +4,8 @@
 #define nl '\n'
 #define all(X) (X).begin(),(X).end()
 #define allr(X) (X).rbegin(),(X).rend()
-#define yes cout<<"YES"<<nl;
-#define no cout<<"NO"<<nl;
+#define yes cout<<"Yes"<<nl;
+#define no cout<<"No"<<nl;
 #define fast() ios_base::sync_with_stdio(0),cin.tie(0),cout.tie(0)
 const long long int INF = 1e18+5;
 const int N = 1e6 + 5;
@@ -17,13 +17,16 @@ using namespace std;
   
   
 void solve(){
-    ll a,b,n,s;cin>>a>>b>>n>>s;
-    if((a*n+b) == s)cout<<"YES"<<nl;
-    else if(s > (a*n)+b)cout<<"NO"<<nl;
-    else{
-        if((s%n) <= b)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
+    int n;cin>>n;
+    vector<int>a(n),b(n);
+    for(auto &it:a)cin>>it;
+    for(auto &it:b)cin>>it;
+    int alice = max(a[0],b[0]);
+    int bob = max(a[n-1],b[n-1]);
+
+    if(alice>bob || alice<bob)yes
+    else no
+
   
 }
   

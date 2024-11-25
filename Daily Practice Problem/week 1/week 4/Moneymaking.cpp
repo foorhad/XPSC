@@ -17,13 +17,8 @@ using namespace std;
   
   
 void solve(){
-    ll a,b,n,s;cin>>a>>b>>n>>s;
-    if((a*n+b) == s)cout<<"YES"<<nl;
-    else if(s > (a*n)+b)cout<<"NO"<<nl;
-    else{
-        if((s%n) <= b)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
+    ll a,b;cin>>a>>b;
+    cout<<(a*5000)+(b*9800)<<nl;
   
 }
   
@@ -31,7 +26,8 @@ void solve(){
 int main()
 {
 fast();
-    int t=1;cin>>t;
-    while(t--)solve();
+    // int t=1;cin>>t;
+    // while(t--)solve();
+    solve();
     return 0;
 }
